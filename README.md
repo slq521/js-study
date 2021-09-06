@@ -37,7 +37,15 @@
 
 ### flutter、weex
 
+## 前端状态管理
+
+### Redux、mobx、recoil、zustand、rematch、concent
+
 ### 原生小程序、weex、taro
+
+## 微前端
+
+### 
 
 ## 服务端
 
@@ -48,5 +56,11 @@
 ## 存储
 
 ### mySql、redis、mongodb
+
+## 安全
+
+### XSS
+
+### CSRF CSP
 
 
