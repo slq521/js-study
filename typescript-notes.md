@@ -23,36 +23,46 @@ changeName = true;
 ```
 
 **类型推论**
-// 下面语句表示（let test: string = 'test';）
+下面语句表示（let test: string = 'test';）
+```typescript
 let testName = 'test';
 // 如果定义时没有赋值，不管以后有没有赋值，都会被推断出为any；
 let testAny;
 testAny = 123;
 testAny = true;
+```
 
 
-// 联合类型
-// 用|来分割每个类型
+**联合类型**
+- 用|来分割每个类型
+```typescript
 let unionName: string|number;
 unionName = 121212;
 unionName = 'Union Name';
+```
 
-// 只能访问联合类型的所有类型共有的属性方法
+- 只能访问联合类型的所有类型共有的属性方法
+```typescript
 function getNameLength(name: string|number):number {
   // 因为number没有length属性，所以ts检测会报错
   // return name.length;
   return ('' + name).length;
 }
+```
 
-// 联合类型的变量在被赋值的时候
+- 联合类型的变量在被赋值的时候
+```typescript
 let someTypes: string|boolean|number = 'slq';
 someTypes = 121;
-// 接下来取someTypes的length属性会报错（上一行ts已经推断出为number类型）
-// console.log(someTypes.length)
+```
+
+接下来取someTypes的length属性会报错（上一行ts已经推断出为number类型）
+console.log(someTypes.length)
 
 
-// 对象类型的接口(interface)
-// 定义接口是建议加“I”前缀
+- 对象类型的接口(interface)
+定义接口是建议加“I”前缀
+```typescript
 interface InameObj {
   name: string;
   age: number;
@@ -97,8 +107,10 @@ interface IchilderObj {
   // age是任意属性的子类型，因为类型不一样，所有ts会报错
   // [propName: string]: string,
 }
+```
 
-// 只读属性(添加readonly前缀)
+- 只读属性(添加readonly前缀)
+```typescript
 interface Ireadonly {
   readonly name: string;
   age: number;
@@ -109,9 +121,10 @@ const readonlys: Ireadonly = {
 }
 // 下面语句ts编译时会报错
 // readonlys.name = 'sdfgh';
+```
 
-
-// 数组类型
+- 数组类型
+```typescript
 // 类型加方括号表示
 const testArray: number[] = [1, 2, 3, 4, 5, 6];
 // 如下：参杂其他类型会报错
@@ -141,11 +154,12 @@ function sum() {
 
 // any在数组中的应用
 const anyArrays: any[] = [1, '2', { name: 'slq' }];
+```
 
-
-// 函数的类型（一个函数有输入和输出，要在 TypeScript 中对其进行约束，需要把输入和输出都考虑到）
-// 函数申明（函数申明、函数表达式）
-// 函数(注意: 输入或多或少的参数是不被允许的)
+- 函数的类型（一个函数有输入和输出，要在 TypeScript 中对其进行约束，需要把输入和输出都考虑到）
+函数申明（函数申明、函数表达式）
+函数(注意: 输入或多或少的参数是不被允许的)
+```typescript
 function getMessages(name: string, age: number): string {
   return `${name} - ${age}`;
 }
@@ -191,7 +205,7 @@ function getpropsTypes(name: string|number): string|number {
   }
   return `number: ${name}`;
 }
-
+```
 
 ### 类型断言
 类型断言可以手动指定一个值的类型
